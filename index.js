@@ -9,7 +9,8 @@ bot.registry.registerGroups([
         ['random', 'Random'],
         ['reply', 'Reply'],
         ['pick', 'Random'],
-        ['data','Data']
+        ['data','Data'],
+        ['data', "Scrape"]
     ]);
 
 bot.registry.registerCommandsIn(__dirname + "/commands");
