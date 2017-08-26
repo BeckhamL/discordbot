@@ -49,7 +49,6 @@ class scrape extends commando.Command {
           
               posts.push('Title: ' + title + "\n" + 'Score: ' + score + "\n" + 'URL: ' + link);
           
-              //fs.appendFileSync('reddit.txt', posts);
             });
           
             for (var i = 0; i < rankScores.length; i++) {
