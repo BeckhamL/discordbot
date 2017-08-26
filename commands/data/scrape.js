@@ -25,7 +25,15 @@ class scrape extends commando.Command {
 
     async run(message, args) {
 
-        request("https://www.reddit.com/r/2meirl4meirl/", function(error, response, body) {
+        var values = message.content.split(/\s+/g).slice(1);
+        
+        if (values.length > 1) {
+          message.channel.send("Only 1 subreddit is allowed");
+        }
+
+        var givenLink = "https://www.reddit.com/r/" + values + "/";
+
+        request(givenLink, function(error, response, body) {
             if (error) {
               console.log("Error: " + error);
             }
@@ -39,18 +47,18 @@ class scrape extends commando.Command {
               rankScores.push(score);
               link = $(this).find('a.title').attr('href');
           
-              posts.push('Title:' + title + 'Score:' + score + 'URL:' + link);
+              posts.push('Title: ' + title + "\n" + 'Score: ' + score + "\n" + 'URL: ' + link);
           
-              fs.appendFileSync('reddit.txt', posts);
+              //fs.appendFileSync('reddit.txt', posts);
             });
           
             for (var i = 0; i < rankScores.length; i++) {
               if (rankScores[i] > largest) {
                 largest = rankScores[i];
-                index++;
+                index = i;
               }
             }
-            console.log(posts[index]);
+            message.channel.send(posts[index]);
           });
     }
 }

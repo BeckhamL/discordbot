@@ -10,7 +10,8 @@ bot.registry.registerGroups([
         ['reply', 'Reply'],
         ['pick', 'Random'],
         ['data','Data'],
-        ['data', "Scrape"]
+        ['data', "Scrape"],
+        ['weather',"Weather"]
     ]);
 
 bot.registry.registerCommandsIn(__dirname + "/commands");
