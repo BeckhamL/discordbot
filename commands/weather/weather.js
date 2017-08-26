@@ -3,6 +3,8 @@ const commando = require('discord.js-commando');
 var WeatherAPI = require('node-openweathermap');
 var apiKey = '7cae9391b895157aa6ea8048b2d95e64';
 
+var combine = [];
+
 class weather extends commando.Command {  
 
     constructor(client){
@@ -17,11 +19,23 @@ class weather extends commando.Command {
 
     async run(message, args) {
 
-        var POI = message.content.split(/\s+/g).slice(1);
-        var POIstring = POI.toString();
+        var POI = message.content.split(/\s+/g);
+        var str;
+
+        if (POI.length > 2) {
+            var POIcut = POI.slice(1, POI.length);
+            combine.push(POIcut);
+            var energy = combine.join();
+            str = energy.replace(",", " ");
+        }
+
+        else {
+            var POIstring = POI.slice(1);
+            var str = POIstring.toString();
+        }
         
         var opts = {
-            location : POIstring,
+            location : str,
             temp_unit : 'C'
         };
         
