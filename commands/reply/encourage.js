@@ -1,6 +1,6 @@
 const commando = require('discord.js-commando');
 
-class reply extends commando.Command {
+class encourage extends commando.Command {
 
     constructor(client) {
             super(client, {
@@ -14,15 +14,15 @@ class reply extends commando.Command {
     async run(message, args) {
         var random = Math.floor(Math.random() * 5);
         var speech = [
-            " have a nice day",
-            " you're looking nice",
+            " have a nice day.",
+            " you're looking nice.",
             " you can do it!",
-            " look's like you've been hitting the gym",
-            " looking fresh as always"
+            " look's like you've been hitting the gym.",
+            " looking fresh as always."
         ];
 
         message.reply(speech[random]);
     }
 }
 
-module.exports = reply;
+module.exports = encourage;

@@ -2,12 +2,11 @@
 const commando = require('discord.js-commando');
 const bot = new commando.Client();
 
-
 bot.registry.registerDefaults();
 
 bot.registry.registerGroups([
         ['random', 'Random'],
-        ['reply', 'Reply'],
+        ['reply', 'Encourage'],
         ['pick', 'Random'],
         ['data','Data'],
         ['data', "Scrape"],
