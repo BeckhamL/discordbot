@@ -14,7 +14,7 @@ class pick extends commando.Command {
 
     async run(message, args) {
 
-        var values = message.content.split(/\s+/g);
+        var values = message.content.split(/[ ,]+/);
         var length = values.length-1;
 
         var min = 1;
